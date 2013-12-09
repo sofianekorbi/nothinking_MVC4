@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Mon application ASP.NET MVC</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/css")
+
+    <link rel="stylesheet" type="text/css" href="../../Content/css/styles.css" />
+    <link type="text/css" href="../../Content/css/css3.css" rel="stylesheet" />
+    <script type="text/javascript" src=" https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery.pikachoose.js"></script>
+    <script language="javascript">
+        $(document).ready(
+            function () {
+                $("#pikame").PikaChoose();
+            });
+    </script>
+
+</head>
+<body>
+    <!--start container-->
+    <div id="container">
+
+        <!--start header-->
+
+        <header>
+
+            <!--start logo-->
+            <a href="#" id="logo"><img src="~/Images/logo.png" width="221" height="100" alt="logo" /></a>
+
+            <!--end logo-->
+            <!--start menu-->
+            <section id="login">
+                @Html.Partial("_LoginPartial")
+            </section>
+            <nav>
+                <ul id="menu">
+                    <li class="current">@Html.ActionLink("Accueil", "Index", "Home")</li>
+                    <li>@Html.ActionLink("À propos de", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </nav>
+            <!--end menu-->
+            <!--end header-->
+        </header>
+
+        <div id="intro">
+            @RenderBody()
+        </div>
+        <!--end intro-->
+    </div>
+    <!--end container-->
+    <!--start footer-->
+    <footer>
+        <div class="container">
+            <div id="FooterTwo"> © @DateTime.Now.Year Think simple </div>
+            <div id="FooterTree">
+                <b>Follow Us</b> <br/>
+                <div class="footer_link">
+                    <a href="#" class="facebook social">Facebook</a>
+                    <a href="#" class="linkedin social">Linkedin</a>
+                    <a href="#" class="youtube social">Youtube</a>
+                    <a href="#" class="vimeo social">Vimeo</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--end footer-->
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
